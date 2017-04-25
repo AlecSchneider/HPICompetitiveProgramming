@@ -40,9 +40,10 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 
 #pragma mark - MAIN
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    
+    std::ios::sync_with_stdio(false);
     #ifdef USE_INPUT_FILE
     freopen("input.txt", "r", stdin);
     #endif
@@ -52,7 +53,40 @@ int main(int argc, const char * argv[]) {
     
     // MAIN Begin
     
-    <#Write your code here...#>
+    int cases;
+    cin >> cases; // read n
+    
+    for (int c=0; c<cases; c++) {
+        string in;
+        cin >> in;
+        int max = -1;
+        if (in.length()>1) {
+            for (int i = 1; i < in.length(); i++) {
+                for (int j = 0; j < in.length()-i; j++) {
+                    int k = j;
+                    int l = j+i;
+                    bool isPalindrom = true;
+                    while (k < l) {
+                        if (in[k] == in[l]) {
+                            k += 1;
+                            l -= 1;
+                        }
+                        else {
+                            isPalindrom = false;
+                            break;
+                        }
+                    }
+                    if (isPalindrom) {
+                        max = i+1;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        cout << max << endl; // write result on stdout
+    }
+
     
     // MAIN End
     

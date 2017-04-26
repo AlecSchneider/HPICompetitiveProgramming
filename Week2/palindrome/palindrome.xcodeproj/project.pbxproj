@@ -425,6 +425,7 @@
 				705315EC1EAFB9630055D088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		705315ED1EAFB9630055D088 /* Build configuration list for PBXNativeTarget "palindrome (Using input.txt)" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +434,7 @@
 				705315EF1EAFB9630055D088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		705315F01EAFB9630055D088 /* Build configuration list for PBXNativeTarget "palindrome (Using input.txt and output.txt)" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +443,7 @@
 				705315F21EAFB9630055D088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

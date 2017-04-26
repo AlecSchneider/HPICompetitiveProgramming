@@ -11,7 +11,8 @@
 #include <string>
 #include <set>
 #include <map>
-
+#include <algorithm>
+#include <cstring>
 // Shortcuts for "common" data types in contests
 typedef long long ll;
 typedef std::vector<int> vi;
@@ -55,36 +56,64 @@ int main(int argc, const char * argv[]) {
     
     int cases;
     cin >> cases; // read n
-    
     for (int c=0; c<cases; c++) {
         string in;
         cin >> in;
-        int max = -1;
-        if (in.length()>1) {
-            for (int i = 1; i < in.length(); i++) {
-                for (int j = 0; j < in.length()-i; j++) {
-                    int k = j;
-                    int l = j+i;
-                    bool isPalindrom = true;
-                    while (k < l) {
-                        if (in[k] == in[l]) {
-                            k += 1;
-                            l -= 1;
-                        }
-                        else {
-                            isPalindrom = false;
-                            break;
-                        }
+        int len = (int)in.length();
+        int m = -1;
+        int up = len/2;
+        int down = len/2-1;
+        if (len>1) {
+            for (int i = 0; i < len; i++) {
+                int x;
+                if (i % 2 == 0) {
+                    x = up;
+                    up += 1;
+                }
+                else {
+                    x = down;
+                    down -= 1;
+                }
+                int j = x - 1;
+                int k = x + 1;
+                int currentM = 1;
+                
+                while (j >= 0 && k < len && in[j] == in[k]) {
+                    currentM += 2;
+                    j -= 1;
+                    k += 1;
+                }
+                
+                if (currentM > 1 && currentM > m) {
+                    m = currentM;
+                }
+                
+                if (m-1 > len-i-1) {
+                    break;
+                }
+                
+                if (x+1 < len && in[x] == in[x+1]) {
+                    j = x-1;
+                    k = x + 2;
+                    currentM = 2;
+                    
+                    while (j >= 0 && k < len && in[j] == in[k]) {
+                        currentM += 2;
+                        j -= 1;
+                        k += 1;
                     }
-                    if (isPalindrom) {
-                        max = i+1;
-                        break;
+                    if (currentM > 1 && currentM > m) {
+                        m = currentM;
                     }
+                }
+                if (m-1 > len-i-1)
+                {
+                    break;
                 }
             }
         }
         
-        cout << max << endl; // write result on stdout
+        cout << m << endl; // write result on stdout
     }
 
     

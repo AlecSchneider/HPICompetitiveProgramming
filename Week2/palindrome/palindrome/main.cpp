@@ -45,6 +45,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     std::ios::sync_with_stdio(false);
+    cin.tie(0);
     #ifdef USE_INPUT_FILE
     freopen("input.txt", "r", stdin);
     #endif
@@ -113,7 +114,7 @@ int main(int argc, const char * argv[]) {
             }
         }
         
-        cout << m << endl; // write result on stdout
+        cout << m << "\n"; // write result on stdout
     }
 
     

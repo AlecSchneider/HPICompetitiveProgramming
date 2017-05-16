@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>trip-to-jerusalem (Using input.txt and output.txt).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>trip-to-jerusalem (Using input.txt).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>trip-to-jerusalem.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>703C9FAE1EC8AC3C002EE742</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>703C9FB41EC8AC3C002EE742</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>703C9FB91EC8AC3C002EE742</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

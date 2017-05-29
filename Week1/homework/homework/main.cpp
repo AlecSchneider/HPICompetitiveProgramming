@@ -54,38 +54,7 @@ int main(int argc, const char * argv[]) {
     
     // MAIN Begin
     
-    int cases;
-    cin >> cases; // read n
     
-    for (int i=0; i<cases; i++) {
-        
-        int res = 1;
-        msi dict;
-        string m;
-        string n;
-        cin >> m; // read m
-        cin >> n;
-        if (m.length() == n.length()) {
-            for (int j = 0; j < m.length(); j++) {
-                dict[m[j]] += 1;
-            }
-            for (int j = 0; j < n.length(); j++) {
-                msi::iterator value = dict.find(n[j]);
-                if (value != dict.end() && value->second > 0) {
-                    dict[n[j]] -= 1;
-                }
-                else {
-                    res = 0;
-                    break;
-                }
-            }
-        }
-        else {
-            res = 0;
-        }
-        
-        
-        cout << res << endl; // write result on stdout
     }
     
     // MAIN End

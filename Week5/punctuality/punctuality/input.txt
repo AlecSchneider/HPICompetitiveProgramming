@@ -1,0 +1,16 @@
+
+2
+Great-Hall
+5
+Gryffindor-Common-Room West-Wing-Staircase 20
+Grand-Staircase Gryffindor-Common-Room 10
+Entrance-Hall Grand-Staircase  10
+Great-Hall Entrance-Hall 2
+West-Wing-Staircase Great-Hall 15
+Potions-Laboratory
+5
+Grand-Staircase Entrance-Hall 5
+Grand-Staircase Dungeons 20
+West-Wing-Staircase Dungeons 5
+Potions-Laboratory Dungeons 5
+Great-Hall West-Wing-Staircase 0

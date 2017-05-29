@@ -87,7 +87,6 @@ int main(int argc, const char * argv[]) {
             }
             
         }
-        
         //        cin >> in;
         //        cout << out << endl; // write result on stdout
     }

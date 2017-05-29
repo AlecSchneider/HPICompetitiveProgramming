@@ -25,6 +25,7 @@ typedef std::pair<int, int> ii;
 typedef std::vector<ii> vii;
 typedef std::set<int> si;
 typedef std::unordered_map<std::string, int> msi;
+typedef std::unordered_map<int, int> mii;
 
 // To simplify repetitions/loops, Note: define your loop style and stick with it!
 #define REP(i, a, b) \
@@ -63,8 +64,9 @@ int main(int argc, const char * argv[]) {
     int questionCount;
     int placeId = 0;
     cin >> questionCount;
-    vector<vector<int>> matrix(4000, vector<int>(4000, INF));
-    vector<vector<ii>> adj(4000);
+//    vector<vector<ii*>> matrix(4000, vector<ii*>(4000, nullptr));
+//    vector<vector<ii*>> adj(4000);
+    unordered_map< int, mii> matrix;
     msi placeNameToId;
     int src = 0;
     placeNameToId["Gryffindor-Common-Room"] = placeId;
@@ -94,20 +96,16 @@ int main(int argc, const char * argv[]) {
             }
             fromId = placeNameToId[from];
             toId = placeNameToId[to];
+            
             if (weight == 0) {
-                for (auto pair = adj[fromId].begin(); pair < adj[fromId].end(); pair++)
-                    if (pair->first == toId) pair->second = INF;
-                for (auto pair = adj[toId].begin(); pair < adj[toId].end(); pair++)
-                    if (pair->first == fromId) pair->second = INF;
-            }//            matrix[fromId][toId] = weight;
-//            matrix[toId][fromId] = weight;
-            else {
-                adj[fromId].push_back(make_pair(toId, weight));
-                adj[toId].push_back(make_pair(fromId, weight));
+                matrix[fromId].erase(matrix[fromId].find(toId));
+                matrix[toId].erase(matrix[toId].find(fromId));
             }
+            matrix[fromId][toId] = weight;
+            matrix[toId][fromId] = weight;
         }
         
-        vi dist(placeId, INF);     // The output array.  dist[i] will hold the shortest
+        vi dist(placeId-1, INF);     // The output array.  dist[i] will hold the shortest
         // distance from src to i
         
         vector<bool> sptSet(placeId-1, false); // sptSet[i] will true if vertex i is included in shortest
@@ -129,12 +127,12 @@ int main(int argc, const char * argv[]) {
             // Mark the picked vertex as processed
             
             
-            for (int i = 0; i < adj[u].size(); i++)
+            for (auto it: matrix[u])
             {
                 // Get vertex label and weight of current adjacent
                 // of u.
-                int v = (adj[u][i]).first;
-                int weight = (adj[u][i]).second;
+                int v = it.first;
+                int weight = it.second;
                 
                 //  If there is shorted path to v through u.
                 if (dist[v] > dist[u] + weight)
